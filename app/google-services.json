@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "822910232991",
+    "project_id": "scheduled-2a4ab",
+    "storage_bucket": "scheduled-2a4ab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:822910232991:android:081aae04f4885297c6f5aa",
+        "android_client_info": {
+          "package_name": "com.example.scheduled"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "822910232991-btklo071pppeoo2vleavbne0d8b2vhmv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCz9dvgFBDyrhvGRjhnPtZ1Sm1ByIaCzrc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "822910232991-btklo071pppeoo2vleavbne0d8b2vhmv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
