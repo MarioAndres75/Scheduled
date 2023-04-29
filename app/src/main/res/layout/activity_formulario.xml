@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/pantallalimpia"
+    tools:context=".formulario">
+
+
+    <EditText
+        android:id="@+id/mesInt"
+        android:layout_width="81dp"
+        android:layout_height="48dp"
+
+
+        android:layout_marginStart="69dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="89dp"
+        android:ems="10"
+        android:hint="Mes"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/diaInt"
+        app:layout_constraintTop_toBottomOf="@+id/nombreInt" />
+
+    <TextView
+        android:id="@+id/titulo"
+        android:layout_width="322dp"
+        android:layout_height="53dp"
+
+        android:layout_marginTop="24dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="COMPLETAR"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/nombreInt"
+        android:layout_width="248dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="24dp"
+        android:hint="Nombre"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titulo" />
+
+    <EditText
+        android:id="@+id/diaInt"
+        android:layout_width="81dp"
+        android:layout_height="48dp"
+
+
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="Dia"
+        android:inputType="date"
+        app:layout_constraintEnd_toStartOf="@+id/mesInt"
+        app:layout_constraintHorizontal_bias="0.252"
+        app:layout_constraintStart_toStartOf="@+id/nombreInt"
+        app:layout_constraintTop_toBottomOf="@+id/nombreInt" />
+
+    <Button
+        android:id="@+id/agendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="161dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="162dp"
+        android:text="AGENDAR"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mesInt" />
+</androidx.constraintlayout.widget.ConstraintLayout>
