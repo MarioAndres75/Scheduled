@@ -12,6 +12,7 @@ class Pantalla3 : AppCompatActivity() {
     lateinit var examen: Button
     lateinit var definir: Button
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pantalla3)
@@ -24,15 +25,33 @@ class Pantalla3 : AppCompatActivity() {
         cumple.setOnClickListener{
             tipoEvento="Cumpleaños de"
             detalle="Festejamos el cumple de: "
-            val lanzar = Intent(this,formulario::class.java) //home
-            startActivity(lanzar)
+            irAFormulario()
         }
         reunion.setOnClickListener{
             tipoEvento="Tipo de reunion"
             detalle="Hay reunion de: "
-            val lanzar = Intent(this,formulario::class.java) //home
-            startActivity(lanzar)
+            irAFormulario()
+        }
+        turno.setOnClickListener {
+            tipoEvento="Especialidad del turno "
+            detalle ="Turno con: "
+            irAFormulario()
+        }
+        examen.setOnClickListener {
+            tipoEvento="Materia de Examen"
+            detalle="Hay Examen de: "
+            irAFormulario()
+        }
+        definir.setOnClickListener {
+            tipoEvento="Describa el Evento"
+            detalle="Se programó un/una: "
+            irAFormulario()
         }
 
+    }
+
+    private fun irAFormulario() {
+        val lanzar = Intent(this,formulario::class.java) //home
+        startActivity(lanzar)
     }
 }

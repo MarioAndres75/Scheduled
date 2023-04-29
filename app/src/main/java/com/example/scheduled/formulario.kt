@@ -9,10 +9,11 @@ import android.widget.TextView
 
 class formulario : AppCompatActivity() {
     lateinit var nombreNuevo : EditText
-    lateinit var diaNuevo : EditText
-    lateinit var mesNuevo : EditText
-    lateinit var agendarNuevo : Button
-    lateinit var titulo: TextView
+    lateinit var diaNuevo :EditText
+    lateinit var mesNuevo :EditText
+    lateinit var agendarNuevo :Button
+    lateinit var titulo:TextView
+    lateinit var horaNuevo :EditText
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_formulario)
@@ -21,26 +22,34 @@ class formulario : AppCompatActivity() {
         mesNuevo=findViewById(R.id.mesInt)
         agendarNuevo=findViewById(R.id.agendar)
         titulo=findViewById(R.id.titulo)
+        horaNuevo=findViewById(R.id.horaInt)
         var valDia =0
         var valMes =0
         titulo.text= tipoEvento.toString()
 
 
         agendarNuevo.setOnClickListener {
-            valDia=diaNuevo.text.toString().toInt()
-            valMes=mesNuevo.text.toString().toInt()
-            //validar fecha
+            if (diaNuevo.text.toString().isNotEmpty() && mesNuevo.text.toString().isNotEmpty()) {
+                valDia = diaNuevo.text.toString().toInt()
+                valMes = mesNuevo.text.toString().toInt()
+            }
+            if (valDia in 1..31 && valMes in 1..12){
+                var NuevoEvento=   "------------------------------------ \n" +
+                        // " Tipo: $tipoEvento \n" +
+                        "El dia: ${diaNuevo.text} / ${mesNuevo.text}  \n" +
+                        "$detalle" + "${nombreNuevo.text} "
+                if (horaNuevo.text.toString().isNotEmpty()) NuevoEvento="$NuevoEvento \n A las ${horaNuevo.text.toString()} HS "
 
-            val NuevoEvento=   "Numero: $numeroDeEvento \n" +
-                    // " Tipo: $tipoEvento \n" +
-                    "El dia: ${diaNuevo.text} / ${mesNuevo.text}  \n" +
-                    "$detalle" + "${nombreNuevo.text} \n"
-            tipoEvento = "Tipo No Identificado "
-            fecha = "01/01"
-            detalle = "sin detalle"
-            ArrayDeEventos.add(NuevoEvento)
-            val lanzar = Intent(this,pantalla2::class.java) //home
-            startActivity(lanzar)
+                tipoEvento = "Tipo No Identificado "
+                fecha = "01/01"
+                detalle = "sin detalle"
+                hora ="00"
+                ArrayDeEventos.add(NuevoEvento)
+                val lanzar = Intent(this,pantalla2::class.java) //home
+                startActivity(lanzar)
+            }else titulo.text= "INGRESE VALORES VALIDOS"
+
+
         }
     }
 

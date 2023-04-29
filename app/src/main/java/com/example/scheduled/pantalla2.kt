@@ -12,6 +12,7 @@ var numeroDeEvento=0
 var tipoEvento = "Tipo No Identificado "
 var fecha = "01/01/2023"
 var detalle="sin detalle"
+var hora="00"
 var ListadoDeEventos="EVENTOS:"
 var ArrayDeEventos :MutableList<String> = mutableListOf("")
 
