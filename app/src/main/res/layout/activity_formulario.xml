@@ -8,20 +8,7 @@
     tools:context=".formulario">
 
 
-    <EditText
-<<<<<<< HEAD
-        android:id="@+id/mesInt"
-        android:layout_width="81dp"
-        android:layout_height="48dp"
-
-
-        android:layout_marginStart="69dp"
-        android:layout_marginTop="34dp"
-        android:layout_marginEnd="89dp"
-        android:ems="10"
-        android:hint="Mes"
-        android:inputType="date"
-=======
+  <EditText
         android:id="@+id/horaInt"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -49,22 +36,12 @@
         android:hint="Mes"
         android:inputType="date"
         app:layout_constraintBottom_toTopOf="@+id/agendar"
->>>>>>> 48c1cc6 (version002)
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/diaInt"
         app:layout_constraintTop_toBottomOf="@+id/nombreInt" />
 
     <TextView
         android:id="@+id/titulo"
-<<<<<<< HEAD
-        android:layout_width="322dp"
-        android:layout_height="53dp"
-
-        android:layout_marginTop="24dp"
-        android:gravity="center_horizontal|center_vertical"
-        android:text="COMPLETAR"
-        android:textSize="20sp"
-=======
         android:layout_width="0dp"
         android:layout_height="0dp"
 
@@ -76,7 +53,6 @@
         android:text="COMPLETAR"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/nombreInt"
->>>>>>> 48c1cc6 (version002)
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -84,38 +60,17 @@
     <EditText
         android:id="@+id/nombreInt"
         android:layout_width="248dp"
-<<<<<<< HEAD
-        android:layout_height="51dp"
-        android:layout_marginTop="24dp"
-        android:hint="Nombre"
-=======
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
         android:inputType="textCapCharacters"
         android:hint="Nombre"
         app:layout_constraintBottom_toTopOf="@+id/mesInt"
->>>>>>> 48c1cc6 (version002)
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titulo" />
 
     <EditText
         android:id="@+id/diaInt"
-<<<<<<< HEAD
-        android:layout_width="81dp"
-        android:layout_height="48dp"
-
-
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="32dp"
-        android:ems="10"
-        android:hint="Dia"
-        android:inputType="date"
-        app:layout_constraintEnd_toStartOf="@+id/mesInt"
-        app:layout_constraintHorizontal_bias="0.252"
-        app:layout_constraintStart_toStartOf="@+id/nombreInt"
-        app:layout_constraintTop_toBottomOf="@+id/nombreInt" />
-=======
         android:layout_width="0dp"
         android:layout_height="0dp"
 
@@ -129,21 +84,11 @@
         app:layout_constraintEnd_toStartOf="@+id/mesInt"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/mesInt" />
->>>>>>> 48c1cc6 (version002)
 
     <Button
         android:id="@+id/agendar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
-        android:layout_marginStart="161dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="162dp"
-        android:text="AGENDAR"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mesInt" />
-=======
         android:layout_marginEnd="84dp"
         android:text="AGENDAR"
         app:layout_constraintBottom_toTopOf="@+id/textView"
@@ -160,5 +105,4 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/horaInt"
         app:layout_constraintTop_toBottomOf="@+id/agendar" />
->>>>>>> 48c1cc6 (version002)
 </androidx.constraintlayout.widget.ConstraintLayout>
