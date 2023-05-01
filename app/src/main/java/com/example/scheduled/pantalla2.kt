@@ -12,10 +12,8 @@ var numeroDeEvento=0
 var tipoEvento = "Tipo No Identificado "
 var fecha = "01/01/2023"
 var detalle="sin detalle"
-var hora="00"
-var ListadoDeEventos="EVENTOS:"
-var ArrayDeEventos :MutableList<String> = mutableListOf("")
-
+var ArrayDeEventosNew: MutableList<EventoNew> = mutableListOf()
+var hora ="00"
 class pantalla2 : AppCompatActivity() {
     lateinit var nuevoEvento :Button
     lateinit var listaDeEventos:TextView
@@ -26,9 +24,13 @@ class pantalla2 : AppCompatActivity() {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
         nuevoEvento=findViewById(R.id.NuevoEvento)
         listaDeEventos=findViewById(R.id.ListaDeEventos)
-        ArrayDeEventos.forEach {
-            listaDeEventos.text=" ${listaDeEventos.text} \n "+it.toString()
+
+        ArrayDeEventosNew.sortBy { it.orden }
+        ArrayDeEventosNew.forEach{
+            listaDeEventos.text="${listaDeEventos.text} \n " +
+                    "${it.detalle.toString()}"
         }
+
         nuevoEvento.setOnClickListener{
 
             val lanzar = Intent(this,Pantalla3::class.java) //home
@@ -38,4 +40,5 @@ class pantalla2 : AppCompatActivity() {
 
         }
     }
+
 }
