@@ -6,8 +6,12 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.ktx.Firebase
 
 class formulario : AppCompatActivity() {
+    private lateinit var firebaseAnalytics: FirebaseAnalytics
     lateinit var nombreNuevo : EditText
     lateinit var diaNuevo :EditText
     lateinit var mesNuevo :EditText
@@ -16,6 +20,7 @@ class formulario : AppCompatActivity() {
     lateinit var horaNuevo :EditText
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        firebaseAnalytics = Firebase.analytics
         setContentView(R.layout.activity_formulario)
         nombreNuevo=findViewById(R.id.nombreInt)
         diaNuevo=findViewById(R.id.diaInt)

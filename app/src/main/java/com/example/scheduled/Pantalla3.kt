@@ -4,6 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.ktx.Firebase
 
 class Pantalla3 : AppCompatActivity() {
     lateinit var cumple : Button
@@ -11,10 +14,11 @@ class Pantalla3 : AppCompatActivity() {
     lateinit var turno : Button
     lateinit var examen: Button
     lateinit var definir: Button
-
+    private lateinit var firebaseAnalytics: FirebaseAnalytics
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        firebaseAnalytics = Firebase.analytics
         setContentView(R.layout.activity_pantalla3)
         cumple=findViewById(R.id.Cumple)
         reunion=findViewById(R.id.Reunion)
