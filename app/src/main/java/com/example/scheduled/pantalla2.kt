@@ -8,6 +8,9 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
 import java.util.*
 
@@ -17,7 +20,9 @@ var fecha = "01/01/2023"
 var detalle="sin detalle"
 var ArrayDeEventosNew: MutableList<EventoNew> = mutableListOf()
 var hora ="00"
+
 class pantalla2 : AppCompatActivity() {
+
     val c = Calendar.getInstance()
     val month = c.get(Calendar.MONTH).toInt()
     val day = c.get(Calendar.DAY_OF_MONTH).toInt()
@@ -25,15 +30,17 @@ class pantalla2 : AppCompatActivity() {
     lateinit var nuevoEvento :Button
     lateinit var listaDeEventos:TextView
     var otroEvento =0
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pantalla2)
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
         nuevoEvento=findViewById(R.id.NuevoEvento)
         listaDeEventos=findViewById(R.id.ListaDeEventos)
+       FirebaseDatabase.getInstance().reference // realtime database
 
-
-        ArrayDeEventosNew.sortBy { it.orden }
+        ArrayDeEventosNew.sortBy { it.orden }//ordena la ajenda
         ArrayDeEventosNew.forEach{
             if (ordenActual<= it.orden){
                 listaDeEventos.text="${listaDeEventos.text} \n " +
