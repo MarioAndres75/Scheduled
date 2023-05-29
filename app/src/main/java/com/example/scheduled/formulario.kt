@@ -8,8 +8,9 @@ import android.widget.EditText
 import android.widget.TextView
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
-
+var ordenEvento=0
 class formulario : AppCompatActivity() {
     private lateinit var firebaseAnalytics: FirebaseAnalytics
     lateinit var nombreNuevo : EditText
@@ -30,7 +31,7 @@ class formulario : AppCompatActivity() {
         horaNuevo=findViewById(R.id.horaInt)
         var valDia =0
         var valMes =0
-        var ordenEvento=0
+
         titulo.text= tipoEvento.toString()
 
         agendarNuevo.setOnClickListener {
@@ -45,12 +46,15 @@ class formulario : AppCompatActivity() {
                         "El dia: ${diaNuevo.text} / ${mesNuevo.text}  \n" +
                         "$detalle" + "${nombreNuevo.text} "
                 if (horaNuevo.text.toString().isNotEmpty()) NuevoEvento="$NuevoEvento \n A las ${horaNuevo.text.toString()} HS "
+                database.child("Eventos").child(ordenEvento.toString()).setValue(NuevoEvento) // agregando evento en base de datos
 
                 tipoEvento = "Tipo No Identificado "
                 fecha = "01/01"
                 detalle = "sin detalle"
                 hora ="00"
                 val eventoNew=EventoNew(NuevoEvento,ordenEvento)
+
+
                 ArrayDeEventosNew.add(eventoNew)
                 val lanzar = Intent(this,pantalla2::class.java) //home
                 startActivity(lanzar)
