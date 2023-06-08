@@ -10,10 +10,12 @@
     <Button
         android:id="@+id/Cumple"
         android:layout_width="278dp"
-        android:layout_height="42dp"
+        android:layout_height="0dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="150dp"
+        android:layout_marginBottom="410dp"
         android:background="@android:color/transparent"
+        app:layout_constraintBottom_toTopOf="@+id/cancelar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -56,4 +58,14 @@
         android:background="@android:color/transparent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Examen" />
+
+    <Button
+        android:id="@+id/cancelar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="81dp"
+        android:text="PLANIFICACION"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
