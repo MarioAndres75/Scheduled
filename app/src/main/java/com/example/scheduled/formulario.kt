@@ -10,7 +10,7 @@ import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
-var ordenEvento=0
+
 class formulario : AppCompatActivity() {
     private lateinit var firebaseAnalytics: FirebaseAnalytics
     lateinit var nombreNuevo : EditText
@@ -46,7 +46,11 @@ class formulario : AppCompatActivity() {
                         "El dia: ${diaNuevo.text} / ${mesNuevo.text}  \n" +
                         "$detalle" + "${nombreNuevo.text} "
                 if (horaNuevo.text.toString().isNotEmpty()) NuevoEvento="$NuevoEvento \n A las ${horaNuevo.text.toString()} HS "
-                database.child("Eventos").child(ordenEvento.toString()).setValue(NuevoEvento) // agregando evento en base de datos
+               cantidadDeEventos++
+             //prueba con firestore, escritura
+              db.collection("Eventos").document(cantidadDeEventos.toString()).set(
+                  hashMapOf("detalle" to NuevoEvento,"orden" to ordenEvento.toString())
+              )
 
                 tipoEvento = "Tipo No Identificado "
                 fecha = "01/01"
