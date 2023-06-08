@@ -14,6 +14,7 @@ class Pantalla3 : AppCompatActivity() {
     lateinit var turno : Button
     lateinit var examen: Button
     lateinit var definir: Button
+    lateinit var cancelar:Button
     private lateinit var firebaseAnalytics: FirebaseAnalytics
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,6 +26,7 @@ class Pantalla3 : AppCompatActivity() {
         turno=findViewById(R.id.Turno)
         examen=findViewById(R.id.Examen)
         definir=findViewById(R.id.Definir)
+        cancelar=findViewById(R.id.cancelar)
 
         cumple.setOnClickListener{
             tipoEvento="Cumpleaños de"
@@ -52,6 +54,14 @@ class Pantalla3 : AppCompatActivity() {
             irAFormulario()
         }
 
+       cancelar.setOnClickListener {
+           irAPantalla2()
+       }
+    }
+
+    private fun irAPantalla2() {
+        val lanzar = Intent(this,pantalla2::class.java) //home
+        startActivity(lanzar)
     }
 
     private fun irAFormulario() {
