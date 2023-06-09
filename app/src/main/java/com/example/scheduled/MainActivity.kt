@@ -26,15 +26,15 @@ class MainActivity : AppCompatActivity() {  lateinit var botonInicio: Button
         lateinit var auth: FirebaseAuth
 // ...
 // Initialize Firebase Auth
+
         auth = Firebase.auth
 
 
 
 
 
-
         botonInicio.setOnClickListener{
-            val lanzar = Intent(this,pantalla2::class.java) //home
+            val lanzar = Intent(this,LogIn::class.java) //home
             startActivity(lanzar)
         }
 

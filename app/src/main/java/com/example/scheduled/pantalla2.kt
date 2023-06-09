@@ -2,23 +2,12 @@ package com.example.scheduled
 
 import android.content.Intent
 import android.content.pm.ActivityInfo
-import android.nfc.Tag
-import com.google.firebase.analytics.FirebaseAnalytics
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.analytics.ktx.analytics
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.database.*
 
-import com.google.firebase.database.ktx.database
-import com.google.firebase.database.ktx.snapshots
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.ktx.Firebase
 import java.util.*
 var ordenEvento=0
 var numeroDeEvento=1
@@ -28,7 +17,11 @@ var detalle="sin detalle"
 var ArrayDeEventosNew: MutableList<EventoNew> = mutableListOf()
 var hora ="00"
 var contador =0
+var usuario = email.text.toString()
 var cantidadDeEventos=0
+enum class ProviderType{
+    BASIC
+}
 
 
 var db = FirebaseFirestore.getInstance() //firestore
@@ -50,8 +43,12 @@ class pantalla2 : AppCompatActivity() {
         nuevoEvento=findViewById(R.id.NuevoEvento)
         listaDeEventos=findViewById(R.id.ListaDeEventos)
         planificacion=findViewById(R.id.planificacion)
-       leerFirestore()
+       leerFirestore(contador)
+        contador=1
        ordenarImprimir()
+        val bundle:Bundle? = intent.extras
+        val email:String? = bundle?.getString("email")
+        //val provider :String? = bundle?.getString("provider")
 
         nuevoEvento.setOnClickListener{
 
@@ -60,11 +57,13 @@ class pantalla2 : AppCompatActivity() {
             numeroDeEvento++
        }
        planificacion.setOnClickListener {
-           leerFirestore()
+           leerFirestore(contador)
            ordenarImprimir()
+           contador=1
        }
     }
 fun ordenarImprimir(){
+    listaDeEventos.text=""
     ArrayDeEventosNew.sortBy { it.orden }//ordena la ajenda
     ArrayDeEventosNew.forEach{
         if (ordenActual<= it.orden){
@@ -88,12 +87,12 @@ fun ordenarImprimir(){
         }
     }
 }
-fun leerFirestore(){
+fun leerFirestore(contador: Int) {
     if (contador ==0) {
-        contador=1
+
         for (i in 1..365) {
 
-            val docRef = db.collection("Eventos").document(i.toString())
+            val docRef = db.collection(email.text.toString()).document(i.toString())
                 .get()
                 .addOnSuccessListener {
                     if (it.get("detalle") != null) {

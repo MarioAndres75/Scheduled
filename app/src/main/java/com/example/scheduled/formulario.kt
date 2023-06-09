@@ -1,11 +1,13 @@
 package com.example.scheduled
 
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.database.FirebaseDatabase
@@ -23,6 +25,7 @@ class formulario : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         firebaseAnalytics = Firebase.analytics
         setContentView(R.layout.activity_formulario)
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
         nombreNuevo=findViewById(R.id.nombreInt)
         diaNuevo=findViewById(R.id.diaInt)
         mesNuevo=findViewById(R.id.mesInt)
@@ -47,8 +50,8 @@ class formulario : AppCompatActivity() {
                         "$detalle" + "${nombreNuevo.text} "
                 if (horaNuevo.text.toString().isNotEmpty()) NuevoEvento="$NuevoEvento \n A las ${horaNuevo.text.toString()} HS "
                cantidadDeEventos++
-             //prueba con firestore, escritura
-              db.collection("Eventos").document(cantidadDeEventos.toString()).set(
+             //firestore, escritura
+              db.collection(usuario).document(cantidadDeEventos.toString()).set(
                   hashMapOf("detalle" to NuevoEvento,"orden" to ordenEvento.toString())
               )
 
@@ -62,10 +65,17 @@ class formulario : AppCompatActivity() {
                 ArrayDeEventosNew.add(eventoNew)
                 val lanzar = Intent(this,pantalla2::class.java) //home
                 startActivity(lanzar)
-            }else titulo.text= "INGRESE VALORES VALIDOS"
+            }else alerta()
 
 
         }
     }
-
+    fun alerta(){
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Error")
+        builder.setMessage("No ha ingresado valores validos")
+        builder.setPositiveButton("Aceptar",null)
+        val dialog: AlertDialog =builder.create()
+        dialog.show()
+    }
 }
