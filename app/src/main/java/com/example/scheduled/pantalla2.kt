@@ -2,13 +2,19 @@ package com.example.scheduled
 
 import android.content.Intent
 import android.content.pm.ActivityInfo
+import android.content.pm.LauncherApps
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.coroutines.*
+import org.checkerframework.checker.guieffect.qual.UI
+import retrofit2.Retrofit
 import java.util.*
+import kotlin.concurrent.thread
+
 var ordenEvento=0
 var numeroDeEvento=1
 var tipoEvento = "Tipo No Identificado "
@@ -43,9 +49,10 @@ class pantalla2 : AppCompatActivity() {
         nuevoEvento=findViewById(R.id.NuevoEvento)
         listaDeEventos=findViewById(R.id.ListaDeEventos)
         planificacion=findViewById(R.id.planificacion)
-       leerFirestore(contador)
-        contador=1
-       ordenarImprimir()
+
+        leerFirestore(contador)
+        contador = 1
+        ordenarImprimir()
         val bundle:Bundle? = intent.extras
         val email:String? = bundle?.getString("email")
         //val provider :String? = bundle?.getString("provider")
@@ -56,11 +63,7 @@ class pantalla2 : AppCompatActivity() {
             startActivity(lanzar)
             numeroDeEvento++
        }
-       planificacion.setOnClickListener {
-           leerFirestore(contador)
-           ordenarImprimir()
-           contador=1
-       }
+
     }
 fun ordenarImprimir(){
     listaDeEventos.text=""
@@ -87,6 +90,12 @@ fun ordenarImprimir(){
         }
     }
 }
+ fun coroutine() {
+
+
+
+
+}
 fun leerFirestore(contador: Int) {
     if (contador ==0) {
 
@@ -102,9 +111,11 @@ fun leerFirestore(contador: Int) {
                        val eventoNew = EventoNew(NuevoEvento,orden.toInt())
                        cantidadDeEventos++
                        ArrayDeEventosNew.add(eventoNew)
+                        ordenarImprimir()
                     }
 
                 }
+
         }
 
     }
