@@ -1,6 +1,7 @@
 package com.example.scheduled
 
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -21,6 +22,7 @@ class Pantalla3 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         firebaseAnalytics = Firebase.analytics
         setContentView(R.layout.activity_pantalla3)
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
         cumple=findViewById(R.id.Cumple)
         reunion=findViewById(R.id.Reunion)
         turno=findViewById(R.id.Turno)
