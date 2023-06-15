@@ -24,8 +24,7 @@ class MainActivity : AppCompatActivity() {  lateinit var botonInicio: Button
         botonInicio=findViewById(R.id.BotonInicio)
 
         lateinit var auth: FirebaseAuth
-// ...
-// Initialize Firebase Auth
+
 
         auth = Firebase.auth
 
