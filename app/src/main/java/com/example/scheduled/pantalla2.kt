@@ -9,9 +9,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.coroutines.*
-import org.checkerframework.checker.guieffect.qual.UI
-import retrofit2.Retrofit
+
 import java.util.*
 import kotlin.concurrent.thread
 
