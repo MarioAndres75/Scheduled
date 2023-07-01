@@ -33,26 +33,31 @@ class Pantalla3 : AppCompatActivity() {
         cumple.setOnClickListener{
             tipoEvento="Cumpleaños de"
             detalle="Festejamos el cumple de: "
+            borradoAutomatico=false
             irAFormulario()
         }
         reunion.setOnClickListener{
             tipoEvento="Tipo de reunion"
             detalle="Hay reunion de: "
+            borradoAutomatico=true
             irAFormulario()
         }
         turno.setOnClickListener {
             tipoEvento="Especialidad del turno "
             detalle ="Turno con: "
+            borradoAutomatico=true
             irAFormulario()
         }
         examen.setOnClickListener {
             tipoEvento="Materia de Examen"
             detalle="Hay Examen de: "
+            borradoAutomatico=true
             irAFormulario()
         }
         definir.setOnClickListener {
             tipoEvento="Describa el Evento"
             detalle="Se programó un/una: "
+            borradoAutomatico=true
             irAFormulario()
         }
 
