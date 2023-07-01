@@ -41,6 +41,7 @@
 
             <Button
                 android:id="@+id/registrar"
+                app:backgroundTint="#00D9FF"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -48,6 +49,7 @@
 
             <Button
                 android:id="@+id/acceder"
+                app:backgroundTint="#FF9800"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
