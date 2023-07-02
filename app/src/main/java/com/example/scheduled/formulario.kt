@@ -31,7 +31,7 @@ class formulario : AppCompatActivity() {
     lateinit var agendarNuevo :Button
     lateinit var titulo:TextView
     lateinit var horaNuevo :EditText
-    override fun onCreate(savedInstanceState: Bundle?) {
+        override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         firebaseAnalytics = Firebase.analytics
         setContentView(R.layout.activity_formulario)
@@ -44,7 +44,6 @@ class formulario : AppCompatActivity() {
         horaNuevo=findViewById(R.id.horaInt)
         var valDia =0
         var valMes =0
-
         val dateMes = LocalDateTime.now()
             .format(DateTimeFormatter.ofPattern("MM"))
         var mes = dateMes.toString().toInt()
@@ -76,6 +75,7 @@ class formulario : AppCompatActivity() {
                    db.collection(usuario).document(cantidadDeEventos.toString()).set(
                        hashMapOf("detalle" to NuevoEvento, "orden" to ordenEvento.toString(),"Tipo" to borradoAutomatico)
                    )
+
 
                    tipoEvento = "Tipo No Identificado "
                    fecha = "01/01"

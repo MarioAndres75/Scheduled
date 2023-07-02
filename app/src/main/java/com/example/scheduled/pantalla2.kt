@@ -3,11 +3,14 @@ package com.example.scheduled
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.messaging.ktx.messaging
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
@@ -201,7 +204,12 @@ class pantalla2 : AppCompatActivity() {
             }
         }
 
-
+        Firebase.messaging.token.addOnCompleteListener {
+            if (it.isSuccessful) {
+                // En este momento conocemos el valor del token
+                Log.d("Notificaciones", it.result!!)
+            }
+        }
 
 
     }
@@ -231,12 +239,7 @@ class pantalla2 : AppCompatActivity() {
         }
     }
 }
- fun coroutine() {
 
-
-    // if(borradoAutomatico && ordenEvento < diaActual )
-
-}
 fun leerFirestore(contador: Int) {
     if (contador ==0) {
 
